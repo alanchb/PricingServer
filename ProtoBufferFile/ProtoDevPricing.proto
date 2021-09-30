@@ -1,0 +1,58 @@
+syntax = 'proto2';
+package Proto.DevPricing;
+
+option java_package = "com.cc.protobuf";
+option java_outer_classname = "ProtoDevPricings";
+
+enum EnumDevType
+{
+    Vanilla         = 0;    //香草期权
+    Sharkfin        = 1;    //鲨鱼鳍期权
+    Sharkfin2       = 2;    //双鲨鱼鳍期权
+    Barrier         = 3;    //障碍期权
+
+    SnowBall        = 10;   //雪球
+}
+
+enum EnumBarrierType
+{
+    CUO             = 0;    //Call Up Out
+    CUI             = 1;    //Call Up In
+    CDO             = 2;    //Call Down Out
+    CDI             = 3;    //Call Down In
+    PUO             = 4;    //Put Up Out
+    PUI             = 5;    //Put Up In
+    PDO             = 6;    //Put Down Out
+    PDI             = 7;    //Put Down In
+}
+
+message ProtoDevPricingReq
+{
+    required EnumDevType        Dev_Type            = 1;
+    required int32              Year_Days           = 2 [default=252];
+    required int32              Duration            = 3;
+    required double             Volatility          = 4;
+    required double             RiskFree_Rate       = 5;
+    optional double             Strike              = 6;
+    optional double             S0                  = 7;
+    optional double             S1                  = 8;
+    optional double             Expected_Ret        = 9;
+    optional double             KnockOut_Ratio      = 10;
+    optional double             KnockOut_Ratio2     = 11;
+    optional double             KnockIn_Ratio       = 12;
+    optional double             KnockOut_Return     = 13;
+    optional int32              Start_Obsv_Date     = 14;
+    optional int32              MC_Samples          = 15;
+    optional bool               IS_KnockIn          = 16 [default = false];
+    optional double             Barrier             = 17;
+    optional EnumBarrierType    Barrier_Type        = 18;
+}
+
+message ProtoDevPricingRsp
+{
+    required EnumDevType    Dev_Type            = 1;
+    required double         Value               = 2;
+    optional double         Value_Max           = 3;
+    optional double         Value_Min           = 4;
+    optional double         Avg_Knockout_Month  = 5;
+}

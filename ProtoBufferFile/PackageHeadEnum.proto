@@ -1,0 +1,92 @@
+syntax = 'proto2';
+package Proto.Package;
+
+option java_package = "com.cc.protobuf";
+option java_outer_classname = "PackageHeadEnums";
+
+enum PackageType {
+	Request         = 1;	//请求
+	Reply           = 2;	//响应
+	AsnycRequest    = 3;	//异步请求
+	AsnycReply      = 4;	//异步相应
+	PushMessage     = 5;	//推送消息
+}
+
+enum FunctionCode {
+    PlaceOrder = 1;					//下单
+    DeleteOrder = 2;				//撤单
+
+    DevPricing      = 10;	//衍生品定价
+
+    QueryProjectInfo = 101;				//向app请求项目信息
+    QueryStockInfo	= 102;				//请求现货证券信息
+    QueryFutureInfo  = 103;				//请求期货信息
+
+    QueryStockOrderInfo = 104;
+    QueryStockKnockInfo = 105;
+    QueryStockCancelInfo = 106;
+    QueryStockPositionInfo = 107;
+    QueryStockAccountInfo = 108;
+
+    QueryFutOrderInfo = 109;
+    QueryFutKnockInfo = 110;
+    QueryFutCancelInfo = 111;
+    QueryFutPositionInfo = 112;
+    QueryFutAccountInfo = 113;
+    QueryMiniteLineInfo = 114;				//向app请求分钟线行情信息
+    QueryDayLineInfo = 115;				//向app请求日线行情信息
+    QueryFutureMarginRateAndCommission = 116;			//向交易网关请求期货保证金率
+    QueryQtsProductNav = 117;			//请求Qts产品净值 
+    QueryIndexComponentInfo = 118;	//向app请求指数成分股及权重等信息
+    StockPreSettle =119;				//现货预清算
+    QueryStockPreSettleResult=120;   //现货预清算结果查询
+    StockReckonTradingLogImp=121;		   //券商对账文件导入之现货交易流水导入
+    StockReckonAccountImp=122;		   //券商对账文件导入之资金导入
+    StockReckonStklistImp=123;		   //券商对账文件导入之股份导入
+    StockReckonAndResultReturn=124;		   //券商现货对账与对账结果结果返回
+    ComputeProductNav=125;				//计算产品净值 
+    QueryQuotationTicks=126;             //查询tick行情
+    TestFunc127 = 127;		//测试功能号127， 高性能测试用，127为序列化后1字节的最大值
+    GetSysInfo=128;					   //从APP获取系统信息，每天不重复
+    QueryNeedStkInfo=129;                //查询需要的证券信息
+    QueryWhiteList=130;                //查询白名单
+    QueryBlackList=131;                //查询黑名单
+    RefreshPrjPosition=132;                //刷新app持仓内存
+    OMSOptLogin=133;					//OMS柜员登录
+    QueryLOFInfo	= 134;				//请求现货证券信息
+    QueryUnProcess	= 135;				//请求现货待交收信息
+    RestrictListMaintance	= 136;				//请求现货待交收信息
+
+    RequestTradeInfo	= 137;				//请求交易信息，委托成交等等      
+    QueryDayLineInfoFromCiccDC = 138;				//向app请求日线行情信息   
+    QueryOptionInfo = 139;
+
+    QueryFutureETFArbPara = 200;	//查询期货ETF套利的参数
+
+    PauseTrade	= 500;				//暂停交易指令
+    ContinueTrade	= 501;				//重启交易指令	
+    SimuPara = 9000;		//修改模拟成交的参数
+
+    //16351~16383保留作为测试功能号（16383为序列化后2字节的最大值）
+    TestFunc16351 = 16351;	//测试用16351
+    TestFunc16352 = 16352;  //测试用16352
+    TestFunc16353 = 16353;	//测试用16353
+    TestFunc16354 = 16354;	//测试用16354
+    TestFunc16355 = 16355;  //测试用16355
+    TestFunc16356 = 16356;	//测试用16356
+    TestFunc16357 = 16357;  //测试用16357
+    TestFunc16358 = 16358;	//测试用16358
+    TestFunc16359 = 16359;	//测试用16359
+    TestFunc16360 = 16360;  //测试用16360
+    TestFunc16361 = 16361;	//测试用16361
+    TestFunc16362 = 16362;  //测试用16362
+    TestFunc16363 = 16363;	//测试用16363
+    TestFunc16364 = 16364;	//测试用16364
+    TestFunc16365 = 16365;  //测试用16365
+    TestFunc16366 = 16366;	//测试用16366
+    TestFunc16367 = 16367;  //测试用16367
+    TestFunc16368 = 16368;	//测试用16368
+    TestFunc16369 = 16369;	//测试用16369
+    TestFunc16370 = 16370;  //测试用16370
+
+}

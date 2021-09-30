@@ -1,0 +1,13 @@
+syntax = "proto2";
+package Proto.Data;
+
+
+message DataRow
+{
+    repeated double Rows   = 1;
+}
+
+message DataMatrix
+{
+    repeated DataRow Matrix  = 1;
+}

@@ -1,0 +1,19 @@
+syntax  = 'proto2';
+package Proto.Package;
+
+import "PackageHeadEnum.proto";
+//消息包头
+option java_package = "com.cc.protobuf";
+option java_outer_classname = "PackageHeads";
+
+message PackageHead {
+  required PackageType  packageType  =  1;	    //包类型, 请求/响应
+  required FunctionCode functionCode =  2;      //功能号
+  optional string       destination  =  3;      //目的地
+  optional string       userId       =  4;      //用户号，对于服务器，可填服务器的标识
+  optional string       moduleId     =  5;      //模块号
+  optional int32        messageCode  =  6;      //消息代码
+  optional string       messageText  =  7;      //消息文字
+  optional string       customText   =  8;		//自定义文本, 应用层根据需要自行定义作用
+}
+
